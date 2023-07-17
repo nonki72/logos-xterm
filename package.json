@@ -9,6 +9,7 @@
   "author": "Jordan Cote",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.18.2",
     "xterm": "^5.2.1"
   }
 }
