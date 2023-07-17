@@ -1,0 +1,14 @@
+{
+  "name": "logos-xterm",
+  "version": "1.0.0",
+  "description": "A web terminal for Logos",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jordan Cote",
+  "license": "MIT",
+  "dependencies": {
+    "xterm": "^5.2.1"
+  }
+}
