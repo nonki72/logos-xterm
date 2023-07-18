@@ -30,22 +30,22 @@ const App = (props) => {
     fitAddon.fit();
     term.write("What's on your mind?\r\n");
     var inputText = '';
-    term.onKey(async ({ key, domEvent }) => {
-      term.write(key);
-      console.log(key);
-      if (domEvent.key === "Enter") {
+    term.onData(async (data) => {
+      term.write(data);
+      console.log(data);
+      if (data.charCodeAt(0) === 13) { // enter
         term.write("\r\n");
         const outputText = await Interact(inputText);
         term.write(outputText);
         term.write("\r\n");
         inputText = '';
-      } else if (domEvent.key === "Backspace") {
+      } else if (data.charCodeAt(0) === 127) { // backspace
         term.write('\b');
         term.write(' ');
         term.write('\b');
-        inputText = inputText.slice(0,inputText.length-2);
+        inputText = inputText.slice(0,inputText.length-1);
       } else {
-        inputText = inputText + key;
+        inputText = inputText + data;
       }
     });
 
