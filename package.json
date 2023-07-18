@@ -7,18 +7,11 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
-    "@aws-sdk/credential-providers": "^3.370.0",
-    "antd": "4.10.0",
-    "async_hooks": "^1.0.0",
-    "aws": "^0.0.3-2",
-    "craco": "^0.0.3",
+    "antd": "^5.7.0",
     "express": "^4.18.2",
-    "gcp-metadata": "^5.3.0",
-    "logos-ai": "^0.2.0",
-    "mongodb-client-encryption": "^2.9.0",
     "react": "17.0.0",
     "react-dom": "17.0.0",
-    "react-scripts": "3.4.3",
+    "react-scripts": "5.0.1",
     "xterm": "4.9.0",
     "xterm-addon-attach": "0.6.0",
     "xterm-addon-fit": "0.4.0",
@@ -28,9 +21,10 @@
     "typescript": "3.8.3"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "debug": "react-scripts debug",
     "eject": "react-scripts eject"
   },
   "browserslist": [
