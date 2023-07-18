@@ -5,6 +5,7 @@ import { Terminal } from "xterm";
 import { WebLinksAddon } from "xterm-addon-web-links";
 import { FitAddon } from "xterm-addon-fit";
 import { AttachAddon } from "xterm-addon-attach";
+import Interact from "./Client";
 
 var inputText = null;
 function inputFunction() {
@@ -29,22 +30,22 @@ const App = (props) => {
     fitAddon.fit();
     term.write("What's on your mind?\r\n");
     var inputText = '';
-    term.onKey(({ key, domEvent }) => {
+    term.onKey(async ({ key, domEvent }) => {
       term.write(key);
       console.log(key);
-      inputText = inputText + key;
-
       if (domEvent.key === "Enter") {
         term.write("\r\n");
-        term.write(inputText);
+        const outputText = await Interact(inputText);
+        term.write(outputText);
         term.write("\r\n");
-        //interact.interact(inputFunction, term.write);
         inputText = '';
       } else if (domEvent.key === "Backspace") {
         term.write('\b');
         term.write(' ');
         term.write('\b');
         inputText = inputText.slice(0,inputText.length-2);
+      } else {
+        inputText = inputText + key;
       }
     });
 
