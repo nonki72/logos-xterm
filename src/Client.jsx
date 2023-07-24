@@ -7,9 +7,7 @@ async function Interact(inputString) {
     console.log(uri);
     const result = await fetch(uri);
     const json = await result.json();
-    const stringOfJson = JSON.stringify(json);
-      console.log(stringOfJson);
-    return "result:"+stringOfJson;
+    return json.output;
 }
 
 export default Interact;

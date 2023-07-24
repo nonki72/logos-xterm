@@ -35,7 +35,8 @@ const App = (props) => {
       console.log(data);
       if (data.charCodeAt(0) === 13) { // enter
         term.write("\r\n");
-        const outputText = await Interact(inputText);
+        const outputString = await Interact(inputText);
+        const outputText = '>'+outputString;
         term.write(outputText);
         term.write("\r\n");
         inputText = '';
@@ -48,11 +49,6 @@ const App = (props) => {
         inputText = inputText + data;
       }
     });
-
-    term.textarea.onkeypress = function (e) {
-      console.log(e);
-      term.write(String.fromCharCode(e.keyCode));
-    };
   };
 
   useEffect(() => {
